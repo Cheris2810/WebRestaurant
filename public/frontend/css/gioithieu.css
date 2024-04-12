@@ -1,0 +1,204 @@
+* {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+
+.mainContent-theme{
+  padding-top: 70px;
+
+}
+#about-us {
+  background-color: rgb(247, 238, 229);
+  padding-top: 20px;
+
+}
+/*-- Sign Styles --*/
+.sign {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  z-index: 1;
+}
+ .sign__word {
+  /* position: relative; */
+  margin: 20px;
+  text-align: center;
+  line-height: 1;
+  color:#df4801;
+  font-weight: bold;
+  animation: neon 0.08s ease-in-out infinite alternate;
+}
+/*định dạng chung phần nội dung about*/
+.container-about{
+  font-size : 20px;
+  width: 70%;
+  margin: 1rem auto;
+  padding: 2rem;
+  text-align: justify;
+  transition: all 0.3s;
+}
+/*định dạng phần tử p trong container-about*/
+.container-about p{
+  background-color:rgb(247, 238, 229);
+  color : rgb(223, 72, 1);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  word-spacing: 2px;
+  
+}
+/*Định dạng in hoa kí tự đầu tiên của tag p*/
+.container-about p:first-child::first-letter{
+  color: #df4801;
+  font-weight: bold;
+  font-size: 70px;
+  float: left;
+  line-height: 60px;
+  padding-right: 8px;
+  margin-top: -3px;
+}
+
+.Hoshi_phan{
+  display: flex;
+  justify-content: space-around;
+}
+
+.Yoshihiro_Murata{
+  display: flex;
+  justify-content: space-around;
+}
+
+.container {
+  margin-top: 120px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container__items {
+  flex : 1;
+}
+
+.container__items h1{
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color :#df4801;
+}
+.container__items p {
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 20px;
+  color :#df4801;
+}
+
+
+
+.container__img {
+  flex : 1;
+  width: 100%;
+  margin: 20x auto;
+  justify-content: center;
+  transform: scale(1);
+ 
+}
+.container__img:hover {
+  animation: fadein linear 1s;
+}
+
+
+@keyframes fadein {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+
+@media only screen {
+  #main-menu {
+    flex-direction: column;
+    text-align: center;
+  }
+ 
+  .navigation-bar {
+    display: none;
+  }
+
+  .container {
+    margin-top: 120px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .container__items {
+    max-width: 812px;
+    color: black;
+    text-align: center;
+    
+  }
+  .container__items p {
+  
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  .container__items1 {
+    flex: 1;
+    background-color: rgb(247, 238, 229);
+    text-align: center;
+    color: #df4801;
+    padding: 10%;
+  }
+  .container__items1 p {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+  }
+}
+
+/*Responsive với Tablet và mobile*/
+@media (max-width: 1023px) {
+  #about-us {
+    font-size: 50%;
+  }
+
+  .container__items1 p{
+    font-size: 15px;
+  }
+  .Hoshi_phan{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .container__img{
+    width: 70%;
+  }
+
+  .Yoshihiro_Murata{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+
+  .Yoshihiro_Murata .container__img{
+    order: 1;
+  }
+
+  .Yoshihiro_Murata .container__items1{
+    order: 2;
+  }
+
+  .container-about p {
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    word-spacing: 2px;
+
+}
+}

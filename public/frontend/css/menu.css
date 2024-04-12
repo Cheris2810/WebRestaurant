@@ -1,0 +1,131 @@
+.ndc{
+ background: black;
+}
+
+h1{
+    color: #FFDAB9;
+    letter-spacing: 3px;
+}
+p{
+    font-size: large;
+    color:#FFDAB9;
+}
+
+.o1,.o2,.o3 {
+    position: relative;
+    text-align: center;
+
+    margin: 0 1px 0 1px;
+    border-radius: 10px; 
+}
+
+.hinh{
+    padding: 50px;
+    background: black;
+    transition: transform .2s;
+    margin: 0 1rem;
+    margin-top: 3rem;
+    margin-bottom:3rem;
+}
+
+.hinh>img{
+    border-radius: 5rem 1rem;
+}
+
+  /*Hiệu ứng zoom*/
+.hinh:hover {
+    transform: scale(1.1);
+}
+
+.o4,.o5,.o6 {
+    position: relative;
+    text-align: center;
+
+    margin: 0 1px 0 1px;
+    border-radius: 10px; 
+}
+
+.o5{
+    margin-bottom: -1rem;
+}
+
+.o7,.o8,.o9 {
+    position: relative;
+    text-align: center;
+
+    margin: 0 2px 0 2px;
+    border-radius: 10px; 
+}
+
+.nd1{
+    position: relative;
+    display: flex;
+    text-align: center;
+    margin: 5px 10px;
+}
+
+.nd2{
+    position: relative;
+    display: flex;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.nd3{
+    position: relative;
+    display: flex;
+    text-align: center;
+    margin-top: 10px;
+}
+
+table{
+   
+    text-align: center;
+    vertical-align: auto;
+}
+
+span button {
+    display: block;
+    background-color: #fff;
+    border: 1px solid red;
+    padding: 5px 5px;
+    margin-left: -2rem;
+    border-radius: 5px 2px;
+    float: right;
+    color: red;
+    width: 90px;
+    border-radius: 30px;
+}
+
+
+span button:hover {
+    background-color:#F4A460;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s all;
+}
+
+.chuyentrang{
+    background-color: #B2966C;
+    list-style: none;
+    text-align: center;
+    font-size: x-large;
+}
+
+.buttonct{
+    color: white;
+    border: 1px solid white;
+    border-radius: 2rem;
+
+}
+.button-move{
+    border: 1px solid;
+}
+.button-move:hover{
+    background:  black;
+}
+
+.go-back{
+    background:#FFDAB9;
+    color: #df4801;
+}

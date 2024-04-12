@@ -1,0 +1,117 @@
+/* NGUYỄN THỊ DIỄM HƯƠNG MSSV: B2104771 */
+
+.body {
+  width: 1096px;
+  height: auto;
+  margin: 20px auto;
+  color: #df4801;
+  background-color: rgb(247, 238, 229);
+}
+legend h1 {
+  font-size: 50px;
+}
+
+/* .order {
+  padding-top: -300px;
+} */
+.infor {
+  list-style: none;
+  font-weight: bold;
+  height: 200px;
+}
+
+.infor li {
+  font-size: 20px;
+  margin: 5px 5px 5px 0;
+}
+.infor input {
+  width: 600px;
+  height: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.infor input:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.mon1 {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  margin-left: 70px;
+  padding-top: -100px;
+}
+.soluong {
+  margin-top: -12px;
+  margin-right: 130px;
+}
+.mon1-1 {
+  display: flex;
+}
+.mon1-1 p {
+  margin-top: 14.5px;
+  margin-left: 10px;
+}
+.menu1 {
+  margin: 20px;
+}
+.mon1 {
+  height: 45px;
+}
+.dathang p,
+h4 {
+  font-weight: bold;
+  /* font-size: 16px; */
+}
+.note {
+  margin: -10px 20px 10px 20px;
+}
+
+.note textarea {
+  margin-left: 10px;
+}
+
+.nutdathang {
+  display: flex;
+  justify-content: right;
+  margin-right: 20px;
+}
+.nutdathang button {
+  height: 40px;
+  font-weight: bold;
+  color: #df4801;
+  font-size: 15px;
+  margin-left: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.nutdathang button:hover {
+  cursor: pointer;
+  background-color: #df4801;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.soluong input {
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.soluong input:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.mon1-1 input:hover {
+  cursor: pointer;
+}
+.body {
+  border-radius: 10px;
+  box-shadow: 4px 4px 16px 4px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.body:hover {
+  box-shadow: 8px 16px 16px 8px rgba(0, 0, 0, 0.2);
+}
+fieldset {
+  border-radius: 10px;
+  border: 2px solid #df4801;
+}

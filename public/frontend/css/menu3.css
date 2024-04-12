@@ -1,0 +1,125 @@
+/*Trần Bạch Bảo Khanh B2003744*/
+.ndc{
+    background-color: #f7eee5;
+   }
+   
+   p{
+       font-size: large;
+   }
+   h1{
+    color: #df4801;
+    letter-spacing: 3px;
+}
+   
+   .o1,.o2,.o3 {
+       position: relative;
+       text-align: center;
+    
+       margin: 0 1px 0 1px;
+       border-radius: 10px; 
+   }
+   
+   .hinh{
+       padding: 50px;
+       background-color: #f7eee5;
+       transition: transform .2s;
+       margin: 0 1rem;
+       margin-top: 3rem;
+   }
+   
+     /*Hiệu ứng zoom*/
+   .hinh:hover {
+       transform: scale(1.1);
+   }
+   
+   .o4,.o5,.o6 {
+       position: relative;
+       text-align: center;
+ 
+       margin: 0 1px 0 1px;
+       border-radius: 10px; 
+   }
+   
+   .o5{
+       margin-bottom: -1rem;
+   }
+   
+   .o7,.o8,.o9 {
+       position: relative;
+       text-align: center;
+    
+       margin: 0 2px 0 2px;
+       border-radius: 10px; 
+   }
+   
+   .nd1{
+       position: relative;
+       display: flex;
+       text-align: center;
+       margin: 5px 10px;
+   }
+   
+   .nd2{
+       position: relative;
+       display: flex;
+       text-align: center;
+       margin-top: 10px;
+   }
+   
+   .nd3{
+       position: relative;
+       display: flex;
+       text-align: center;
+       margin-top: 10px;
+   }
+   
+   table{
+    
+       text-align: center;
+       vertical-align: auto;
+   }
+   
+ span  button {
+       display: block;
+       background-color: #fff;
+       border: 1px solid red;
+       padding: 5px 5px;
+       margin-left: -2rem;
+       border-radius: 5px 2px;
+       float: right;
+       color: red;
+       width: 90px;
+       border-radius: 30px;
+   }
+   
+ span  button:hover {
+       background-color: red;
+       color: #fff;
+       transition: 0.3s all;
+   }
+   
+   .chuyentrang{
+       background-color: #B2966C;
+       list-style: none;
+       text-align: center;
+       font-size: x-large;
+   }
+   
+   .buttonct{
+       color: white;
+       border: 1px solid white;
+       border-radius: 2rem;
+   
+   }   
+
+   .button-move{
+    border: 1px solid;
+}
+.button-move:hover{
+    background-color: #df4801;
+}
+
+.go-back{
+    background-color: antiquewhite;
+    color: #df4801;
+}

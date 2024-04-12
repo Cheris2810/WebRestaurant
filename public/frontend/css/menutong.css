@@ -1,0 +1,71 @@
+/*Trần Bạch Bảo Khanh B2003744*/
+body{
+    background-color: #f7eee5;
+}
+.thucdonmain{
+    border:1px solid #B2966C;
+    padding:180px 50px;
+    font-size:30px;
+    background-color:#f7eee5;
+    font-family: 'Ariel', Courier, monospace;
+    text-align: center;
+    color: #B2966C;
+}
+
+.thucdon1, .thucdon2, .thucdon3{
+    color: #B2966C;
+    font-weight: bolder;
+    font-size: 150%;
+    text-decoration: none;
+    text-shadow: 2px 2px 3px black;
+}
+
+.thucdon1, .thucdon2, .thucdon3:hover{
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+.thucdon1{
+    border:1px solid gray;
+    padding:180px 50px;
+    font-size:30px;
+    background-image:url(/hinhanhmonnhat/sashimi03.png);
+    background-color:#eee;
+    background-size: cover;
+}
+
+.thucdon2{
+    border:1px solid gray;
+    padding:180px 50px;
+    font-size:30px;
+    background-image:url(/hinhanhmonnhat/mon-chien03.png);
+    background-color:#eee;
+    background-size: cover;
+    margin-top: 50px;
+}
+
+.thucdon3{
+    border:1px solid gray;
+    padding:180px 50px;
+    font-size:30px;
+    background-image:url(/hinhanhmonnhat/mon-dac-biet03.png);
+    background-color:#eee;
+    background-size: cover;
+    margin-top: 50px;
+}
+
+@keyframes thucdon1{
+    0%{
+        top:0px;
+        left:0px;
+    }
+    10%{
+        top:0px;
+        left:400px;
+    }
+}
+
+
