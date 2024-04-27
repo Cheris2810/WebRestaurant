@@ -31,7 +31,7 @@
 
       <!--Logo-->
       <div class="w-25  d-flex justify-content-center">
-        <a href="{{URL::to('/')}}"><img src="{{asset('public/frontend/img/logo restaurant.png')}}" alt class="logo "></a>
+        <a href="{{URL::to('/home')}}"><img src="{{asset('public/frontend/img/logo restaurant.png')}}" alt class="logo "></a>
       </div>
        <!--Phần responsive thành hamberger menu và các option trong thanh điều huớg-->
      
@@ -210,11 +210,11 @@
 
         <ul class="navbar-nav p-1 column-gap-1 w-75 justify-content-center ">
           <li class="nav-item" >
-            <a class="nav-link"  aria-current="page" href="{{URL::to('/')}}"> <i
+            <a class="nav-link"  aria-current="page" href="{{URL::to('/home')}}"> <i
                 class="fa-solid fa-house"></i> Trang Chủ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{URL::to('/')}}"> <i class="fa-solid fa-list"></i>
+            <a class="nav-link" href="{{URL::to('/menu')}}"> <i class="fa-solid fa-list"></i>
               Thực Đơn</a>
           </li>
           <li class="nav-item">
@@ -229,7 +229,7 @@
             <ul class="dropdown-menu "  aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="user-info.html">Thông Tin Cá Nhân</a></li>
 
-              <li><a class="dropdown-item" href="index.html"> Đăng Xuất</a></li>
+              <li><a class="dropdown-item" href="{{URL::to('/loginadmin')}}"> Đăng Xuất</a></li>
             </ul>
           </li>
           <li class="nav-item">

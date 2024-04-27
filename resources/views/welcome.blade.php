@@ -30,7 +30,7 @@
 
       <!--Logo-->
       <div class="w-25  d-flex justify-content-center">
-        <a href="{{URL::to('/')}}"><img src="{{asset('public/frontend/img/logo restaurant.png')}}" alt class="logo "></a>
+        <a href="{{URL::to('/home')}}"><img src="{{asset('public/frontend/img/logo restaurant.png')}}" alt class="logo "></a>
       </div>
        <!--Phần responsive thành hamberger menu và các option trong thanh điều huớg-->
      
@@ -219,11 +219,11 @@
 
         <ul class="navbar-nav p-1 column-gap-1 w-75 justify-content-center ">
           <li class="nav-item" >
-            <a class="nav-link"  aria-current="page" href="{{URL::to('/')}}"> <i
+            <a class="nav-link"  aria-current="page" href="{{URL::to('/home')}}"> <i
                 class="fa-solid fa-house"></i> Trang Chủ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{URL::to('/')}}"> <i class="fa-solid fa-list"></i>
+            <a class="nav-link" href="{{URL::to('/menu')}}"> <i class="fa-solid fa-list"></i>
               Thực Đơn</a>
           </li>
           <li class="nav-item">
@@ -238,7 +238,7 @@
             <ul class="dropdown-menu "  aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="user-info.html">Thông Tin Cá Nhân</a></li>
 
-              <li><a class="dropdown-item" href="index.html"> Đăng Xuất</a></li>
+              <li><a class="dropdown-item" href="{{URL::to('/loginadmin')}}"> Đăng Xuất</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -348,7 +348,7 @@
             </div>
             <div class="col-md-6 col-lg-3">
               <h2 class="note text-nowrap"  style="color:#FFDAB9">Đồ uống</h2>
-              <a href="menutong.html"><img src="{{asset('public/frontend/img/douong.png')}}" alt="" class="d-block  intro-img w-100">
+              <a href="{{URL::to('/menu-4')}}"><img src="{{asset('public/frontend/img/douong.png')}}" alt="" class="d-block  intro-img w-100">
               </a>
               
             </div>
@@ -357,7 +357,7 @@
 
            <!--nút chuyển đến menu-->
            <div class="container d-flex justify-content-center">
-            <a href="{{URL::to('/')}}">
+            <a href="{{URL::to('/home')}}">
             <div class="btn btn-danger button-menu mb-5">Xem Menu</div>
           </a>
            </div>

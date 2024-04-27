@@ -8,7 +8,7 @@
 
 <br><br><br><br><br>
 <div class="ndc">
-    <a href="{{URL::to('/')}}">
+    <a href="{{URL::to('/menu')}}">
       <div class="btn btn-light ms-4 mt-4 go-back" style="background:#FFDAB9" ><p style=" color: black; font-weight: bold;">Trở Lại</p><i class="fa-solid fa-arrow-right fa-rotate-180" style="background:#FFDAB9;"></i></div>
     </a>
           <div class="container d-flex justify-content-center pt-5"><h1 style="font-weight: bold;">MÓN KHAI VỊ</h1></div>
@@ -21,7 +21,7 @@
                     </section>
                     <div>
                         <p>Bruschetta bánh mì nướng</p>
-                        <p>Bruschetta kết hợp giữa cà chua với bánh mì nướng thêm chút salad<br>1000.000 VND</br></p>
+                        <p>Bruschetta kết hợp giữa cà chua với bánh mì nướng thêm chút salad<br>100.000 VND</br></p>
                     </div>
                     <span class="sl1">
                         <p>Số Lượng: <input type="number" name="soluong" min="0" max="100">
