@@ -17,18 +17,18 @@ class CategoryProductController extends Controller
     }
     public function allcate (){
 
-        $allcate = DB::table('danhmucsp')->get();
+        $allcate = DB::table('thucdon')->get();
         $managecategory = view('pages.admin.categoryproduct.allcategory')->with('allcate',$allcate);
         return view('pages.admin.categoryproduct.addcategory')->with('pages.admin.categoryproduct.allcategory',$managecategory);
     }
     public function savecategory(Request $request){
         $data = array();
-        $data['tendanhmuc'] = $request->categoryproductname;
+        $data['tentd'] = $request->categoryproductname;
         $data['mota'] = $request->categoryproductdesc;
-        $data['tinhtrang'] = $request->categorytinhtrang;
+        $data['hienthi'] = $request->categorytinhtrang;
 
-        DB::table('danhmucsp')->insert($data);
-        Session::put('message','Thêm dữ liệu thành công!');
+        DB::table('thucdon')->insert($data);
+        Session::put('message','Thêm danh mục thực đơn thành công!');
         return Redirect::to('addcate');
         // echo '<pre>';
         // print_r($data);
@@ -36,13 +36,13 @@ class CategoryProductController extends Controller
     }
 
     public function unactivecategory($categoryid){
-        DB::table('danhmucsp')->Where('id',$categoryid)->update(['tinhtrang'=>1]);
-        Session::put('message','Không kích hoạt danh mục sản phẩm thành công!');
+        DB::table('thucdon')->Where('id',$categoryid)->update(['hienthi'=>1]);
+        Session::put('message','Không kích hoạt danh mục thực đơn thành công!');
         return Redirect::to('allcate');
     }
     public function activecategory($categoryid){
-        DB::table('danhmucsp')->Where('id',$categoryid)->update(['tinhtrang'=>0]);
-        Session::put('message','Kích hoạt danh mục sản phẩm thành công!');
+        DB::table('thucdon')->Where('id',$categoryid)->update(['hienthi'=>0]);
+        Session::put('message','Kích hoạt danh mục thực đơn thành công!');
         return Redirect::to('allcate');
     }
 }

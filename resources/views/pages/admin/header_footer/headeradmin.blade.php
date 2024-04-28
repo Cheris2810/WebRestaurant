@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <head>
-<title>Restaurant Cheris | Home</title>
+<title>Restaurant Cheris | @yield('title')</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" type="image/x-icon/" href="{{asset('public/frontend/img/icon logo.png')}}">
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -30,7 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <style>
     html, body {
         background:#FFDAB9;
-        color:#FFDAB9;
+        color:#FF3E96;
     }
 </style>
 <body>
@@ -98,39 +99,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Danh mục sản phảm</span>
+                        <span>Danh mục thực đơn</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{URL::to('/addcate')}}">Thêm danh mục sản phẩm</a></li>
-                        <li><a href="{{URL::to('/allcate')}}">Liệt kê danh mục sản phẩm</a></li>
+                        <li><a href="{{URL::to('/addcate')}}">Thêm danh mục thực đơn</a></li>
+                        <li><a href="{{URL::to('/allcate')}}">Liệt kê danh mục thực đơn</a></li>
                         <!-- <li><a href="grids.html">Grids</a></li> -->
                     </ul>
                 </li>
-                <li>
+               <!--  <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-bullhorn"></i>
                         <span>Font awesome </span>
                     </a>
-                </li>
+                </li> -->
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>
-                        <span>Data Tables</span>
+                        <span>Các món ăn</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="basic_table.html">Basic Table</a></li>
-                        <li><a href="responsive_table.html">Responsive Table</a></li>
+                        <li><a href="{{URL::to('/Addproduct')}}">Thêm món ăn</a></li>
+                        <li><a href="{{URL::to('/Allproduct')}}">Liêt kê món ăn</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-tasks"></i>
-                        <span>Form Components</span>
+                        <span>Các nguyên liệu</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="form_component.html">Form Elements</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-                        <li><a href="dropzone.html">Dropzone</a></li>
+                        <li><a href="{{URL::to('/addIngredient')}}">Thêm nguyên liệu</a></li>
+                        <li><a href="{{URL::to('/allIngredient')}}">Liệt kê nguyên liệu</a></li>
+                        <!-- <li><a href="dropzone.html">Dropzone</a></li> -->
                     </ul>
                 </li>
                 <li class="sub-menu">

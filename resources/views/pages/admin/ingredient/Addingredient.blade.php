@@ -1,5 +1,5 @@
 @extends('pages.admin.header_footer.headeradmin')
-@section('title','Thực đơn')
+@section('title','Nguyên liệu')
 @section('headeradmin')
 
 <section id="main-content">
@@ -18,30 +18,36 @@
 							}
 							?>
                         <header class="panel-heading" style="color:#FF3E96; font-weight: bold;">
-                            Thêm danh mục thực đơn
+                            Thêm nguyên liệu
                         </header>
                         <div class="panel-body">
 	                      
                             <div class="position-center">
-                                <form role="form" action="{{URL::to('/savecategory')}}" method="post">
+                                <form role="form" action="{{URL::to('/saveIngredient')}}" method="post">
                                 	{{csrf_field()}}
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Tên danh mục thực đơn</label>
-                                    <input type="text" name="categoryproductname" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục thực đơn">
+                                    <label for="exampleInputEmail1">Tên nguyên liệu</label>
+                                    <input type="text" name="ingredientname" class="form-control" id="exampleInputEmail1" placeholder="Tên nguyên liệu">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Số lượng</label>
+                                    <input type="text" name="ingredientnumber" class="form-control" id="exampleInputEmail1" placeholder="số lượng">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Mô tả danh mục thực đơn</label>
-                                    <textarea style="resize: none; rows=5" class="form-control" name="categoryproductdesc" id="exampleInputPassword1" placeholder="Mô tả danh mục thự đơn"></textarea>
+                                    <label for="exampleInputEmail1">Mã món ăn tương ứng</label>
+                                    <input type="text" name="ingredientproduct" class="form-control" id="exampleInputEmail1" placeholder="món ăn tương ứng">
                                 </div>
                                 <div class="form-group">
                                 	<label for="exampleInputPassword1">Hiển thị</label>
-	                                   <select class="form-control input-sm m-bot15" name="categorytinhtrang">
+	                                   <select class="form-control input-sm m-bot15" name="ingredienthienthi">
 				                                <option value="0">Ẩn</option>
 				                                <option value="1">Hiển thị</option> 
 	                            		</select>
                                 </div>
                                 
-                                <button type="submit" class="btn btn-info"  name="addcategoryproduct">Thêm danh mục thực đơn</button>
+                                <button type="submit" class="btn btn-info"  name="addIngredient">Thêm nguyên liệu</button>
+                           </form>
                             </form>
                             </div>
 

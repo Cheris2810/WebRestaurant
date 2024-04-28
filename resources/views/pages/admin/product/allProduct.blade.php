@@ -1,5 +1,5 @@
 @extends('pages.admin.header_footer.headeradmin')
-@section('title','Thực đơn')
+@section('title','Món ăn')
 @section('headeradmin')
 <style>
 
@@ -19,7 +19,7 @@
 		<div class="table-agile-info">
   <div class="panel panel-default" style="color:#FF3E96">
     <div class="panel-heading" style="font-weight: bolder;">
-      Liệt kê danh mục thực đơn
+      Liệt kê món ăn
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
@@ -58,31 +58,50 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên danh mục thực đơn</th>
-            <th>Mô tả danh mục thực đơn</th>
+            <th>Tên món ăn</th>
+            <!-- <th>Hình ảnh món ăn</th> -->
+            <th>Giá</th>
+            <th>Loại thực đơn</th>
             <th>Hiển thị</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
 
-        	@foreach($allcate as $allcate)
+        	@foreach($Allproduct as $Allproduct)
 
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{$allcate->tentd}}</td>
-            <td><span class="text-ellipsis">{{$allcate->mota}}</span></td>
+            <td>{{$Allproduct->tenma}}</td>
+            <!-- <td><span class="text-ellipsis">{{$Allproduct->img}}</span></td> -->
+            <td>{{$Allproduct->gia}}</td>
+
+            <td><span class="text-ellipsis">
+              <!-- active: loại thực đơn -->
+              <?php
+                if($Allproduct->idtd == 2){
+                  echo 'Món khai vị';
+                }else if($Allproduct->idtd == 3){
+                  echo 'Món chính';
+                }else if($Allproduct->idtd == 4){
+                  echo 'Món tráng miệng';
+                }else{
+                  echo 'Đồ uống';
+                }
+              ?>
+            </span></td>
+            
             <td><span class="text-ellipsis">
             	<!-- active: hiển thị -->
             	<?php
-            		if($allcate->hienthi == 0){
+            		if($Allproduct->view == 0){
             	?>
-            		<a href="{{URL::to('/unactivecategory/'.$allcate->id)}}"><span class="fathumbstyleup fa fa-thumbs-up"></span></a>
+            		<a href="{{URL::to('/unactiveproduct/'.$Allproduct->id)}}"><span class="fathumbstyleup fa fa-thumbs-up"></span></a>
             	<?php
             		}else{
-            		
+
             	?>
-            		<a href="{{URL::to('/activecategory/'.$allcate->id)}}"><span class="fathumbstyledown fa fa-thumbs-down"></span></a>
+            		<a href="{{URL::to('/activeproduct/'.$Allproduct->id)}}"><span class="fathumbstyledown fa fa-thumbs-down"></span></a>
             	<?php
             		}
             	?>
