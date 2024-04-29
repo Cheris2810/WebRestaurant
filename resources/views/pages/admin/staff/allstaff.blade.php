@@ -1,5 +1,5 @@
 @extends('pages.admin.header_footer.headeradmin')
-@section('title','Nguyên liệu')
+@section('title','Nhân viên')
 @section('headeradmin')
 <style>
 
@@ -19,7 +19,7 @@
 		<div class="table-agile-info">
   <div class="panel panel-default" style="color:#FF3E96">
     <div class="panel-heading" style="font-weight: bolder;">
-      Liệt kê nguyên liệu
+      Liệt kê nhân viên
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
@@ -28,18 +28,18 @@
           <option value="1">Delete selected</option>
           <option value="2">Bulk edit</option>
           <option value="3">Export</option>
-        </select>
-        <button class="btn btn-sm btn-default">Apply</button>     -->            
+        </select> -->
+        <!-- <button class="btn btn-sm btn-default">Apply</button>                 -->
       </div>
       <div class="col-sm-4">
       </div>
       <div class="col-sm-3">
-        <!-- <div class="input-group">
-          <input type="text" class="input-sm form-control" placeholder="Search">
+        <div class="input-group">
+         <!--  <input type="text" class="input-sm form-control" placeholder="Search">
           <span class="input-group-btn">
             <button class="btn btn-sm btn-default" type="button">Go!</button>
-          </span>
-        </div> -->
+          </span> -->
+        </div>
       </div>
     </div>
     <div class="table-responsive">
@@ -58,45 +58,54 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên nguyên liệu</th>
-            <!-- <th>Hình ảnh món ăn</th> -->
-            <th>Số lượng</th>
-            <th>Mã món ăn</th>
+            <th>Tên nhân viên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Mã bộ phận</th>
+            <th>Căn cước</th>
             <th>Hiển thị</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
 
-        	@foreach($allIngredient as $allIngredient)
+        	@foreach($allStaff as $allStaff)
 
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{$allIngredient->tennguyenlieu}}</td>
-           
-            <td>{{$allIngredient->soluong}}</td>
-
-            <td>{{$allIngredient->idma}}</td>
-            
+            <td>{{$allStaff->tennhanvien}}</td>
+            <td>{{$allStaff->ngaysinh}}</td>
+             <td><span class="text-ellipsis">
+              <!-- giới tính -->
+              <?php
+                if($allStaff->gioitinh == 'Nữ'){
+                    echo 'Nữ';
+                }else{
+                    echo 'Nam';
+                }
+              ?>
+            </span></td>
+            <td>{{$allStaff->idbp}}</td>
+            <td><span class="text-ellipsis">{{$allStaff->cccd}}</span></td>
             <td><span class="text-ellipsis">
             	<!-- active: hiển thị -->
             	<?php
-            		if($allIngredient->view == 0){
+            		if($allStaff->view == 0){
             	?>
-            		<a href="{{URL::to('/unactiveIngredient/'.$allIngredient->id)}}"><span class="fathumbstyleup fa fa-thumbs-up"></span></a>
+            		<a href="{{URL::to('/unactiveStaff/'.$allStaff->id)}}"><span class="fathumbstyleup fa fa-thumbs-up"></span></a>
             	<?php
             		}else{
-
+            		
             	?>
-            		<a href="{{URL::to('/activeIngredient/'.$allIngredient->id)}}"><span class="fathumbstyledown fa fa-thumbs-down"></span></a>
+            		<a href="{{URL::to('/activeStaff/'.$allStaff->id)}}"><span class="fathumbstyledown fa fa-thumbs-down"></span></a>
             	<?php
             		}
             	?>
             </span></td>
             <td>
-             <a href="{{URL::to('/editIngredient/'.$allIngredient->id)}}" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i>
+              <a href="#" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i>
               </a>
-             <a href="{{URL::to('/deleteIngredient/'.$allIngredient->id)}}" class="active" ui-toggle-class=""><i class="fa fa-times text-danger text"></i>
+              <a onclick="return confirm('Bạn có chắc chắn xóa nội dung này không?')" href="{{URL::to('/deleteStaff/'.$allStaff->id)}}" class="active" ui-toggle-class=""><i class="fa fa-times text-danger text"></i>
               </a>
             </td>
           </tr>

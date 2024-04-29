@@ -19,7 +19,7 @@ class ProductController extends Controller
 
         $Allproduct = DB::table('monan')->get();
         $managerproduct = view('pages.admin.product.allProduct')->with('Allproduct',$Allproduct);
-        return view('pages.admin.product.addProduct')->with('pages.admin.product.allProduct',$managerproduct);
+             return view('pages.admin.product.addProduct')->with('pages.admin.product.allProduct',$managerproduct);
     }
     public function saveproduct(Request $request){
         $data = array();
@@ -35,44 +35,44 @@ class ProductController extends Controller
 
         DB::table('monan')->insert($data);
         Session::put('message','Thêm món ăn thành công!');
-        return Redirect::to('Addproduct');
+             return Redirect::to('Addproduct');
         // echo '<pre>';
         // print_r($data);
         // echo '</pre>';  
     }
     //  Hiển thị hoặc ẩn món ăn  
     public function unactiveproduct($productid){
-        DB::table('monan')->Where('id',$productid)->update(['hienthi'=>1]);
+        DB::table('monan')->Where('id',$productid)->update(['view'=>1]);
         Session::put('message','Không kích hoạt món ăn thành công!');
-        return Redirect::to('Allproduct');
+             return Redirect::to('Allproduct');
     }
-    public function activecproduct($productid){
-        DB::table('monan')->Where('id',$productid)->update(['hienthi'=>0]);
+    public function activeproduct($productid){
+        DB::table('monan')->Where('id',$productid)->update(['view'=>0]);
         Session::put('message','Kích hoạt món ăn thành công!');
+             return Redirect::to('Allproduct');
+    }
+    public function editproduct ($productid){
+        $editproduct = DB::table('monan')->where('id',$productid)->get();
+         $managerproduct = view('pages.admin.product.editProduct')->with('editproduct',$editproduct);
+            return view('pages.admin.product.editProduct')->with('pages.admin.product.editProduct',$managerproduct);
+    }
+    public function updateproduct (Request $request,$productid){
+        $data = array();
+        $data['tenma'] = $request->productname;
+        $data['img'] = $request->productimg;
+        $data['gia'] = $request->productmoney;
+        $data['idtd'] = $request->productidthucdon;
+
+        DB::table('monan')->where('id',$productid)->update($data);
+        Session::put('message','Cập nhật món ăn thành công!');
+            return Redirect::to('Allproduct');
+
+    }
+//Xóa món ăn
+    public function deleteproduct($productid){
+        DB::table('monan')->where('id',$productid)->delete();
+        Session::put('message','Xóa món ăn thành công!');
         return Redirect::to('Allproduct');
     }
-
-    // //Hiển thị loại thực đơn
-    // public function monkhaivi($categoryproductid){
-    //     DB::table('monan')->Where('idtd',$categoryproductid)->update(['hienthi'=>2]);
-    //     Session::put('message','Món khai vị!');
-    //     return Redirect::to('Allproduct');
-    // }
-    // public function monchinh($categoryproductid){
-    //     DB::table('monan')->Where('idtd',$categoryproductid)->update(['hienthi'=>3]);
-    //     Session::put('message','Món chính!');
-    //     return Redirect::to('Allproduct');
-    // }
-    //  public function montrangmieng($categoryproductid){
-    //     DB::table('monan')->Where('idtd',$categoryproductid)->update(['hienthi'=>4]);
-    //     Session::put('message','Món tráng miệng!');
-    //     return Redirect::to('Allproduct');
-    // }
-    // public function douong($categoryproductid){
-    //     DB::table('monan')->Where('idtd',$categoryproductid)->update(['hienthi'=>5]);
-    //     Session::put('message','Đồ uống!');
-    //     return Redirect::to('Allproduct');
-    // }
-      
-      
 }
+    

@@ -10,7 +10,7 @@
           <div class="row my-5 row-gap-5 justify-content-between align-items-center text-center ">
             <div class="col-md-6 col-lg-3 ">
               <h2 class="note text-nowrap" style="color:#FFDAB9">Món khai vị</h2>
-              <a href="{{URL::to('/menu-1')}}" >
+              <a href="{{URL::to('/menu1')}}" >
                 
                 <img src="{{asset('public/frontend/img/khaivi.png')}}" alt="" class="d-block intro-img w-100 ">
               </a>

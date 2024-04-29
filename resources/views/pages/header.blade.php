@@ -19,6 +19,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Paytone+One&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <link href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css">
+ 
     <title>Restaurant Cheris @yield('title')</title>
     
   </head>
@@ -61,7 +64,7 @@
               
                 <div class="products  d-flex flex-column justify-content-center row-gap-2  w-100">
 
-                  <a href="{{URL::to('/menu-1')}}" class="">
+                  <a href="{{URL::to('/menu1')}}" class="">
                     <div class="product d-flex ">
                     
                       <img src="{{asset('public/frontend/img/hinhcacmonan/khaivi1.png')}}" alt="" class=" ">  
@@ -130,7 +133,7 @@
                   </a>
   
   
-                  <a href="{{URL::to('/menu-1')}}" class="">
+                  <a href="{{URL::to('/menu1')}}" class="">
                     <div class="product d-flex ">
                     
                       <img src="{{asset('public/frontend/img/hinhcacmonan/khaivi3.png')}}" alt="" class=" ">  
@@ -174,7 +177,7 @@
   
   
   
-                  <a href="{{URL::to('/menu-1')}}" class="">
+                  <a href="{{URL::to('/menu1')}}" class="">
                     <div class="product d-flex ">
                     
                       <img src="{{asset('public/frontend/img/hinhcacmonan/khaivi4.png')}}" alt="" class=" ">  
@@ -250,4 +253,12 @@
     <script src="{{asset('public/frontend/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/timkiem.js')}}"></script>
     <script src="{{asset('public/frontend/js/header.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('.chongiohang').click(function(){
+              swal("Here's the title!", "...and here's the text!");
+          });
+      });
+    </script>
   @yield('header')

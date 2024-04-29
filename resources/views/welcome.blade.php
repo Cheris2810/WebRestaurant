@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Paytone+One&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css">
     <title>Restaurant Cheris</title>
     
   </head>
@@ -60,7 +61,7 @@
               
                 <div class="products  d-flex flex-column justify-content-center row-gap-2  w-100">
 
-                  <a href="{{URL::to('/menu-1')}}" class="">
+                  <a href="{{URL::to('/menu1')}}" class="">
                     <div class="product d-flex ">
                     
                       <img src="{{asset('public/frontend/img/hinhcacmonan/khaivi1.png')}}" alt="" class=" ">  
@@ -129,7 +130,7 @@
                   </a>
   
   
-                  <a href="{{URL::to('/menu-1')}}" class="">
+                  <a href="{{URL::to('/menu1')}}" class="">
                     <div class="product d-flex ">
                     
                       <img src="{{asset('public/frontend/img/hinhcacmonan/khaivi3.png')}}" alt="" class=" ">  
@@ -173,7 +174,7 @@
   
   
   
-                  <a href="{{URL::to('/menu-1')}}" class="">
+                  <a href="{{URL::to('/menu1')}}" class="">
                     <div class="product d-flex ">
                     
                       <img src="{{asset('public/frontend/img/hinhcacmonan/khaivi4.png')}}" alt="" class=" ">  
@@ -323,38 +324,49 @@
 <!--Ảnh giới thiệu-->
 
           <div class="d-flex signature justify-content-center "><h2 style="color: #FFDAB9; display: block; letter-spacing: 1px;"> <hr style="color: black;">Thực đơn</h2></div>
-          
+        
           <div class="container">
           <div class="row my-5 row-gap-5 justify-content-between align-items-center text-center ">
             <div class="col-md-6 col-lg-3 ">
+              
               <h2 class="note text-nowrap" style="color:#FFDAB9">Món khai vị</h2>
-              <a href="{{URL::to('/menu-1')}}" >
+              
+              <a href="{{URL::to('/menu1')}}" >
                 
                 <img src="{{asset('public/frontend/img/khaivi.png')}}" alt="" class="d-block intro-img w-100 ">
               </a>
                 
             </div>
             <div class="col-md-6 col-lg-3">
+             
               <h2 class="note text-nowrap" style="color:#FFDAB9">Món chính</h2>
+               
               <a href="{{URL::to('/menu-2')}}"><img src="{{asset('public/frontend/img/monchinh.png')}}" alt="" class="d-block intro-img w-100">
               </a>
               
             </div>
             <div class=" col-md-6 col-lg-3">
+             
               <h2 class="note text-nowrap"  style="color:#FFDAB9">Món tráng miệng</h2>
+               
               <a href="{{URL::to('/menu-3')}}"><img src="{{asset('public/frontend/img/trangmieng.png')}}" alt="" class="d-block  intro-img w-100">
               </a>
               
             </div>
             <div class="col-md-6 col-lg-3">
+            
+             
               <h2 class="note text-nowrap"  style="color:#FFDAB9">Đồ uống</h2>
+              
+              
               <a href="{{URL::to('/menu-4')}}"><img src="{{asset('public/frontend/img/douong.png')}}" alt="" class="d-block  intro-img w-100">
               </a>
               
             </div>
           </div>
         </div>
-
+        
+    
            <!--nút chuyển đến menu-->
            <div class="container d-flex justify-content-center">
             <a href="{{URL::to('/home')}}">
@@ -483,4 +495,13 @@
     <script src="{{asset('public/frontend/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/timkiem.js')}}"></script>
     <script src="{{asset('public/frontend/js/header.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('.chongiohang').click(function(){
+              swal("Here's the title!", "...and here's the text!");
+          });
+      });
+    </script>
   </html>

@@ -115,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li> -->
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-th"></i>
+                        <i class="fas fa-utensils"></i>
                         <span>Các món ăn</span>
                     </a>
                     <ul class="sub">
@@ -125,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-tasks"></i>
+                        <i class="fas fa-clipboard-list"></i>
                         <span>Các nguyên liệu</span>
                     </a>
                     <ul class="sub">
@@ -136,51 +136,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-envelope"></i>
-                        <span>Mail </span>
+                        <i class="fas fa-user-friends"></i>
+                        <span>Bộ phận</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="mail.html">Inbox</a></li>
-                        <li><a href="mail_compose.html">Compose Mail</a></li>
+                        <li><a href="{{URL::to('/addDepartment')}}">Thêm bộ phận</a></li>
+                        <li><a href="{{URL::to('/allDepartment')}}">Liệt kê bộ phận</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fas fa-user"></i>
+                        <span>Nhân viên</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/addStaff')}}">Thêm nhân viên</a></li>
+                        <li><a href="{{URL::to('/allStaff')}}">Liệt kê nhân viên</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class=" fa fa-bar-chart-o"></i>
-                        <span>Charts</span>
+                        <span>Đơn hàng</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="chartjs.html">Chart js</a></li>
-                        <li><a href="flot_chart.html">Flot Charts</a></li>
+                        <li><a href="{{URL::to('/allDone')}}">Xem đơn hàng</a></li>
+                        <li><a href="{{URL::to('/addDone')}}" style="color:black">Thêm đơn hàng</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" fa fa-bar-chart-o"></i>
-                        <span>Maps</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="google_map.html">Google Map</a></li>
-                        <li><a href="vector_map.html">Vector Map</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
+                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
-                        <span>Extra</span>
+                        <span>Phiếu đặt tiệc</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="404.html">404 Error</a></li>
-                        <li><a href="registration.html">Registration</a></li>
+                        <li><a href="{{URL::to('/addcreate')}}"> Lập phiếu</a></li>
+                        <li><a href="{{URL::to('/allcreate')}}">Phiếu đã lập</a></li>
                     </ul>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="login.html">
                         <i class="fa fa-user"></i>
                         <span>Login Page</span>
                     </a>
-                </li>
+                </li> -->
             </ul>            </div>
         <!-- sidebar menu end-->
     </div>

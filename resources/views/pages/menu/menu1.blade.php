@@ -12,6 +12,7 @@
       <div class="btn btn-light ms-4 mt-4 go-back" style="background:#FFDAB9" ><p style=" color: black; font-weight: bold;">Trở Lại</p><i class="fa-solid fa-arrow-right fa-rotate-180" style="background:#FFDAB9;"></i></div>
     </a>
           <div class="container d-flex justify-content-center pt-5"><h1 style="font-weight: bold;">MÓN KHAI VỊ</h1></div>
+          @foreach($allproduct as $allproduct)
       <table>
         <tr class="h1">
             <td class="ngang1">
@@ -21,7 +22,7 @@
                     </section>
                     <div>
                         <p>Bruschetta bánh mì nướng</p>
-                        <p>Bruschetta kết hợp giữa cà chua với bánh mì nướng thêm chút salad<br>100.000 VND</br></p>
+                        <p>Bruschetta kết hợp giữa cà chua với bánh mì nướng thêm chút salad<br>{{number_format($allproduct->gia).' '.'VNĐ'}}</br></p>
                     </div>
                     <span class="sl1">
                         <p>Số Lượng: <input type="number" name="soluong" min="0" max="100">
@@ -35,7 +36,7 @@
                     </section>
                     <div>
                         <p>Salad cồi sò điệp</p>
-                        <p>Sò điệp áp chảo vàng ươm với các loại rau tươi<br>628.000 VND</br></p>
+                        <p>Sò điệp áp chảo vàng ươm với các loại rau tươi<br>{{number_format($allproduct->gia).' '.'VNĐ'}}</br></p>
                     </div>
                     <span class="sl2">
                         <p style="margin-right:8rem">Số Lượng: <input type="number" name="soluong" min="0" max="100" style="margin-right:-8rem;">
@@ -63,8 +64,8 @@
                         <img src="{{asset('public/frontend/img/hinhcacmonan/khaivi3.png')}}">
                     </section>
                     <div>
-                        <p> Foie gras / Gan ngỗng béo</p>
-                        <p> Gan ngỗng cắt thành những miếng vuông nhỏ,áo một lớp bột mỏng<br>200.000 VND</br></p>
+                        <p> {{$allproduct->tenma}}</p>
+                        <p> Gan ngỗng cắt thành những miếng vuông nhỏ,áo một lớp bột mỏng<br>{{number_format($allproduct->gia).' '.'VNĐ'}}</br></p>
                     </div>
                     <span class="sl4">
                         <p>Số Lượng: <input type="number" name="soluong" min="0" max="100">
@@ -78,7 +79,7 @@
                     </section>
                     <div>
                         <p>Huître / Hàu sống</p>
-                        <p> Hàu sau khi khui vỏ vắt vài giọt nước cốt quýt, ớt bột<br>300.000 VND</br></p>
+                        <p> Hàu sau khi khui vỏ vắt vài giọt nước cốt quýt, ớt bột<br>{{number_format($allproduct->gia).' '.'VNĐ'}}</br></p>
                     </div>
                     <span class="sl5">
                         <p style="margin-right:9rem">Số Lượng: <input type="number" name="soluong" min="0" max="100" style="margin-right:-10rem;">
@@ -108,7 +109,7 @@
                     </section>
                     <div>
                         <p>Croque Monsieur/ Bánh mì nướng</p>
-                        <p>Sandwich, thịt nguội, trứng, phô mai và nước sốt bơ sữa<br>150.000 VND</br></p>
+                        <p>Sandwich, thịt nguội, trứng, phô mai và nước sốt bơ sữa<br>{{number_format($allproduct->gia).' '.'VNĐ'}}</br></p>
                     </div>
                     <span class="sl7">
                         <p>Số Lượng: <input type="number" name="soluong" min="0" max="100">
@@ -121,13 +122,19 @@
                         <img src="{{asset('public/frontend/img/hinhcacmonan/khaivi6.png')}}" style="margin-top:-1rem">
                     </section>
                     <div>
-                        <p>Coq au vin / Gà sốt vang</p>
-                        <p>om thịt gà với rượu vang, bơ, thịt xông khói, hành tây và tỏi<br>400.000 VND</br></p>
+                        <p>{{$allproduct->tenma}}</p>
+                        <p>om thịt gà với rượu vang, bơ, thịt xông khói, hành tây và tỏi<br>{{number_format($allproduct->gia).' '.'VNĐ'}}</br></p>
                     </div>
+                    <form action="{{URL::to('/savecart')}}" method="post">
+                        {{csrf_field()}}
                     <span class="sl8">
-                        <p>Số Lượng: <input type="number" name="soluong" min="0" max="100">
-                        <button type="submit">Chọn món</button></p>
+                        <p>Số Lượng: <input type="number" name="qty" min="0" max="100">
+                            <input type="hidden" name="productid_hidden" value="{{$allproduct->id}}">
+                        <button type="submit">Chọn món</button>
+                        <!-- <button type="button" class="chongiohang" name="chonmon">Chọn món</button> -->
+                        </p>
                     </span>
+                    </form>
                 </div>
 
                 <!-- <div class="o9">
@@ -147,6 +154,7 @@
         </tr>
         
     </table>
+    @endforeach
 <br><br><br>
 @section('footer')
 

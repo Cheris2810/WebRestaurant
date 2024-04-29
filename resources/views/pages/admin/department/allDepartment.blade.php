@@ -1,5 +1,5 @@
 @extends('pages.admin.header_footer.headeradmin')
-@section('title','Nguyên liệu')
+@section('title','Bộ phận')
 @section('headeradmin')
 <style>
 
@@ -19,7 +19,7 @@
 		<div class="table-agile-info">
   <div class="panel panel-default" style="color:#FF3E96">
     <div class="panel-heading" style="font-weight: bolder;">
-      Liệt kê nguyên liệu
+      Liệt kê bộ phận
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
@@ -58,46 +58,37 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên nguyên liệu</th>
-            <!-- <th>Hình ảnh món ăn</th> -->
-            <th>Số lượng</th>
-            <th>Mã món ăn</th>
+            <th>Tên bộ phận</th>
+            <th>Hệ số</th>
             <th>Hiển thị</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
 
-        	@foreach($allIngredient as $allIngredient)
+        	@foreach($allDepartment as $allDepartment)
 
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{$allIngredient->tennguyenlieu}}</td>
-           
-            <td>{{$allIngredient->soluong}}</td>
-
-            <td>{{$allIngredient->idma}}</td>
-            
+            <td>{{$allDepartment->tenbophan}}</td>
+            <td><span class="text-ellipsis">{{$allDepartment->heso}}</span></td>
             <td><span class="text-ellipsis">
             	<!-- active: hiển thị -->
             	<?php
-            		if($allIngredient->view == 0){
+            		if($allDepartment->view == 0){
             	?>
-            		<a href="{{URL::to('/unactiveIngredient/'.$allIngredient->id)}}"><span class="fathumbstyleup fa fa-thumbs-up"></span></a>
+            		<a href="{{URL::to('/unactiveDepartment/'.$allDepartment->id)}}"><span class="fathumbstyleup fa fa-thumbs-up"></span></a>
             	<?php
             		}else{
-
+            		
             	?>
-            		<a href="{{URL::to('/activeIngredient/'.$allIngredient->id)}}"><span class="fathumbstyledown fa fa-thumbs-down"></span></a>
+            		<a href="{{URL::to('/activeDepartment/'.$allDepartment->id)}}"><span class="fathumbstyledown fa fa-thumbs-down"></span></a>
             	<?php
             		}
             	?>
             </span></td>
             <td>
-             <a href="{{URL::to('/editIngredient/'.$allIngredient->id)}}" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i>
-              </a>
-             <a href="{{URL::to('/deleteIngredient/'.$allIngredient->id)}}" class="active" ui-toggle-class=""><i class="fa fa-times text-danger text"></i>
-              </a>
+              <a href="" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
             </td>
           </tr>
           @endforeach

@@ -19,7 +19,7 @@ class CategoryProductController extends Controller
 
         $allcate = DB::table('thucdon')->get();
         $managecategory = view('pages.admin.categoryproduct.allcategory')->with('allcate',$allcate);
-        return view('pages.admin.categoryproduct.addcategory')->with('pages.admin.categoryproduct.allcategory',$managecategory);
+            return view('pages.admin.categoryproduct.addcategory')->with('pages.admin.categoryproduct.allcategory',$managecategory);
     }
     public function savecategory(Request $request){
         $data = array();
@@ -29,7 +29,7 @@ class CategoryProductController extends Controller
 
         DB::table('thucdon')->insert($data);
         Session::put('message','Thêm danh mục thực đơn thành công!');
-        return Redirect::to('addcate');
+            return Redirect::to('addcate');
         // echo '<pre>';
         // print_r($data);
         // echo '</pre>';
@@ -38,11 +38,33 @@ class CategoryProductController extends Controller
     public function unactivecategory($categoryid){
         DB::table('thucdon')->Where('id',$categoryid)->update(['hienthi'=>1]);
         Session::put('message','Không kích hoạt danh mục thực đơn thành công!');
-        return Redirect::to('allcate');
+             return Redirect::to('allcate');
     }
     public function activecategory($categoryid){
         DB::table('thucdon')->Where('id',$categoryid)->update(['hienthi'=>0]);
         Session::put('message','Kích hoạt danh mục thực đơn thành công!');
-        return Redirect::to('allcate');
+            return Redirect::to('allcate');
     }
+
+    public function editcategory ($categoryid){
+        $editcategory = DB::table('thucdon')->where('id',$categoryid)->get();
+         $managecategory = view('pages.admin.categoryproduct.editCategory')->with('editcategory',$editcategory);
+            return view('pages.admin.categoryproduct.editCategory')->with('pages.admin.categoryproduct.editCategory',$managecategory);
+    }
+
+    public function updatecategory (Request $request,$categoryid){
+        $data = array();
+        $data['tentd'] = $request->categoryproductname;
+        $data['mota'] = $request->categoryproductdesc;
+
+        DB::table('thucdon')->where('id',$categoryid)->update($data);
+        Session::put('message','Cập nhật danh mục thực đơn thành công!');
+            return Redirect::to('allcate');
+
+    }
+
+     // $allcate = DB::table('thucdon')->get();
+     //    $managecategory = view('pages.admin.categoryproduct.allcategory')->with('allcate',$allcate);
+     //    return view('pages.admin.categoryproduct.addcategory')->with('pages.admin.categoryproduct.allcategory',$managecategory);
+    
 }
