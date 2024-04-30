@@ -120,6 +120,11 @@
               <!-- // xuất liên kết xóa ra (biến $link_xoa) -->
           </td>
       </tr>
+      <td>
+            
+             <a onclick="return confirm('Bạn có chắc chắn xóa nội dung này không?')" href="{{URL::to('/deletecreate/'.$allcreate->stt)}}" class="active" ui-toggle-class=""><i class="fa fa-times text-danger text"></i>
+              </a>
+      </td>
       @endforeach
     @endif
 </table>

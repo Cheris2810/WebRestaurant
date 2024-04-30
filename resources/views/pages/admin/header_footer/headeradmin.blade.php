@@ -174,6 +174,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="{{URL::to('/allcreate')}}">Phiếu đã lập</a></li>
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fas fa-user"></i>
+                        <span>Tài khoản</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/allCustomer')}}">Liệt kê tài khoản</a></li>
+                        <li><a href="{{URL::to('/addCustomer')}}" style="color:black;">Thêm tài khoản</a></li>
+                    </ul>
+                </li>
                 <!-- <li>
                     <a href="login.html">
                         <i class="fa fa-user"></i>

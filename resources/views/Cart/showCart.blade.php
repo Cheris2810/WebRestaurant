@@ -24,8 +24,8 @@
 						<tr class="cart_menu">
 							<td class="image" style="background-color:#7FFF00;font-weight: bolder;">Hình ảnh</td>
 							<td class="description"style="background-color:#7FFF00;font-weight: bolder;">Món ăn</td>
-							<td class="price"style="background-color:#7FFF00;font-weight: bolder;">Giá tiền</td>
-							<td class="quantity"style="background-color:#7FFF00;font-weight: bolder;">Số lượng</td>
+							<td class="price"style="background-color:#7FFF00;font-weight: bolder;">Số lượng</td>
+							<td class="quantity"style="background-color:#7FFF00;font-weight: bolder;">Giá tiền</td>
 							<td class="total"style="background-color:#7FFF00;font-weight: bolder;">Tổng tiền</td>
 							<td style="background-color:#7FFF00;font-weight: bolder;"></td>
 						</tr>

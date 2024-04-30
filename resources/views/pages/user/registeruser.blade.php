@@ -13,12 +13,22 @@ $conn = new mysqli($SERVER, $user, $pass, $database);
 // } else {
 //     echo 'Ket noi that bai';
 // }    Thử 
+    
+    // if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add'])):
 
+    //     //All processing goes within this outer POST condition
+    //     $name_user = (isset($_POST['name_user']) ? $_POST['name_user'] : '');
+    //     $email_user = (isset($_POST['email_user']) ? $_POST['email_user'] : '');
+    //     $sdt_user = (isset($_POST['sdt_user']) ? $_POST['sdt_user'] : '');
+    //     $password_user = (isset($_POST['password_user']) ? $_POST['password_user'] : '');
 
-  if(isset($_POST['add'])){
-            $name_user = $_POST['name_user'];
-            $email_user = $_POST['email_user'];
-            $password_user = $_POST['password_user'];
+    
+
+        if(isset($_POST['add'])){
+                $name_user = $_POST['name_user'];
+                $email_user = $_POST['email_user'];
+                // $sdt_user = $_POST['sdt_user'];
+                $password_user = $_POST['password_user'];
 
          if($conn ->query(
                            "INSERT INTO userlogin (name_user, email_user, password_user) VALUES ('$name_user', '$email_user', '$password_user')"   
@@ -29,8 +39,8 @@ $conn = new mysqli($SERVER, $user, $pass, $database);
                     } else {
                             echo "<script>alert('Thêm không thành công');</script>";
                 }
-            }   
-
+    
+            }
               mysqli_close($conn);  
 
 ?>
@@ -85,6 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             {{csrf_field()}}
             <input type="text" class="ggg"  placeholder="Tên tài khoản" required="" name="name_user"  style="border-radius:2rem">
             <input type="text" class="ggg"  placeholder="Email đăng nhập" required="" name="email_user" style="border-radius:2rem">
+            <!-- <input type="text" class="ggg"  placeholder="SĐT đăng nhập" required="" name="email_user" style="border-radius:2rem"> -->
             <input type="password" class="ggg"  placeholder="Mật khẩu đăng nhập" required="" name="password_user" style="border-radius:2rem">
             <span><input type="checkbox" /> Ghi nhớ</span>
             <!-- <h6><a href="#">Quên mật khẩu?</a></h6>

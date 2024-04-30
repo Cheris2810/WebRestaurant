@@ -18,6 +18,8 @@ use App\Http\Controllers\CreateOrderController;
 use App\Http\Controllers\Menu1Controller;
 use App\Http\Controllers\CartProductController;
 
+use App\Http\Controllers\CustomerController;
+
 
 Route::get('/home', function(){
     return view('welcome');
@@ -169,3 +171,10 @@ Route::post('/saveOrder', [DoneCotroller::class, 'saveOrder'])->name('saveOrder'
 Route::get('/addcreate', [CreateOrderController::class,'addcreate'])->name('addcreate');
 Route::get('/allcreate', [CreateOrderController::class,'allcreate'])->name('allcreate');
 Route::post('/savecreate', [CreateOrderController::class, 'savecreate'])->name('savecreate');
+//Xóa phiếu
+Route::get('/deletecreate/{createid}', [CreateOrderController::class, 'deletecreate'])->name('deletecreate');
+
+//---------------------CUSTOMER--------------------------
+Route::get('/addCustomer', [CustomerController::class, 'addCustomer'])->name('addCustomer');
+Route::get('/allCustomer', [CustomerController::class, 'allCustomer'])->name('allCustomer');
+Route::post('/saveCustomer', [CustomerController::class, 'saveCustomer'])->name('saveCustomer');

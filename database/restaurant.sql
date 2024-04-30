@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2024 at 05:42 PM
+-- Generation Time: Apr 30, 2024 at 10:01 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -52,7 +52,7 @@ INSERT INTO `adminlogin` (`id_admin`, `name_admin`, `email_admin`, `password_adm
 CREATE TABLE `bophan` (
   `id` int(6) NOT NULL,
   `tenbophan` varchar(50) NOT NULL,
-  `heso` varchar(50) NOT NULL,
+  `heso` float DEFAULT NULL,
   `view` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -61,61 +61,11 @@ CREATE TABLE `bophan` (
 --
 
 INSERT INTO `bophan` (`id`, `tenbophan`, `heso`, `view`) VALUES
-(2, 'Khai vị', '0', 1),
-(3, 'Chính', '0', 1),
-(4, 'Tráng miệng', '0', 1),
-(5, 'Rượu', '0', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cache`
---
-
-CREATE TABLE `cache` (
-  `key` varchar(255) NOT NULL,
-  `value` mediumtext NOT NULL,
-  `expiration` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cache_locks`
---
-
-CREATE TABLE `cache_locks` (
-  `key` varchar(255) NOT NULL,
-  `owner` varchar(255) NOT NULL,
-  `expiration` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `danhmucsp`
---
-
-CREATE TABLE `danhmucsp` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tendanhmuc` varchar(255) NOT NULL,
-  `mota` text NOT NULL,
-  `tinhtrang` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `danhmucsp`
---
-
-INSERT INTO `danhmucsp` (`id`, `tendanhmuc`, `mota`, `tinhtrang`, `created_at`, `updated_at`) VALUES
-(1, 'Kem', 'Kem nhiều màu', 1, NULL, NULL),
-(2, 'Kem', 'Kem nhiều màu', 1, NULL, NULL),
-(3, 'Kem', 'Kem nhiều màu', 1, NULL, NULL),
-(4, 'Sò điệp', 'Hải sản tươi sống', 1, NULL, NULL),
-(5, 'Thịt vịt', 'Vịt nguyên con', 1, NULL, NULL),
-(6, 'Món Tráng Miệng', 'Bao gồm các loại món ngọt dùng sau khi ăn', 0, NULL, NULL);
+(2, 'Khai vị', 1.8, 0),
+(3, 'Chính', 1.8, 0),
+(4, 'Tráng miệng', 1.8, 0),
+(5, 'Rượu', 1.8, 0),
+(6, 'Kem ly', 1.5, 1);
 
 -- --------------------------------------------------------
 
@@ -132,53 +82,24 @@ CREATE TABLE `datcoc` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Table structure for table `dathang`
 --
 
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+CREATE TABLE `dathang` (
+  `id` int(6) NOT NULL,
+  `tenmonan` varchar(50) NOT NULL,
+  `gia` varchar(50) NOT NULL,
+  `soluong` varchar(50) NOT NULL,
+  `tongtien` varchar(255) NOT NULL,
+  `view` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Table structure for table `jobs`
+-- Dumping data for table `dathang`
 --
 
-CREATE TABLE `jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `queue` varchar(255) NOT NULL,
-  `payload` longtext NOT NULL,
-  `attempts` tinyint(3) UNSIGNED NOT NULL,
-  `reserved_at` int(10) UNSIGNED DEFAULT NULL,
-  `available_at` int(10) UNSIGNED NOT NULL,
-  `created_at` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `job_batches`
---
-
-CREATE TABLE `job_batches` (
-  `id` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `total_jobs` int(11) NOT NULL,
-  `pending_jobs` int(11) NOT NULL,
-  `failed_jobs` int(11) NOT NULL,
-  `failed_job_ids` longtext NOT NULL,
-  `options` mediumtext DEFAULT NULL,
-  `cancelled_at` int(11) DEFAULT NULL,
-  `created_at` int(11) NOT NULL,
-  `finished_at` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `dathang` (`id`, `tenmonan`, `gia`, `soluong`, `tongtien`, `view`) VALUES
+(1, 'Coq au vin Gà sốt vang', '400000', '1', '400000', 0);
 
 -- --------------------------------------------------------
 
@@ -224,30 +145,30 @@ CREATE TABLE `monan` (
 --
 
 INSERT INTO `monan` (`id`, `tenma`, `img`, `gia`, `idtd`, `view`) VALUES
-(1, 'Bruschetta bánh mì nướng', 'khaivi1.png', 100000, 2, 0),
-(2, 'Foie gras Gan ngỗng béo', 'khaivi3.png', 20000, 2, 0),
-(3, 'Croque Monsieur Bánh mì nướng', 'khaivi5.png', 150000, 2, 0),
-(4, 'Salad cồi sò điệp', 'khaivi2.png', 628000, 2, 0),
-(5, 'Huître Hàu sống', 'khaivi4.png', 300000, 2, 0),
-(6, 'Coq au vin Gà sốt vang', 'khaivi6.png', 400000, 2, 0),
-(7, 'Sò điệp sốt kem chanh', 'monchinh1.png', 300000, 3, 0),
-(8, 'Thăn ngoại bò Úc nướng', 'monchinh3.png', 350000, 3, 0),
-(9, 'Cơm chiên hải sản', 'monchinh5.png', 200000, 3, 0),
-(10, 'Cá hồi sốt tiêu đen', 'monchinh2.png', 250000, 3, 0),
-(11, 'Salad', 'monchinh4.png', 100000, 3, 0),
-(12, 'Sườn cừu nướng', 'monchinh6.png', 400000, 3, 0),
-(13, 'Mont-blanc', 'trangmieng1.png', 100000, 4, 0),
-(14, 'Bánh Madeleines', 'trangmieng3.png', 100000, 4, 0),
-(15, 'Pain au chocolat', 'trangmieng5.png', 150000, 4, 0),
-(16, 'Bánh crepes', 'trangmieng2.png', 100000, 4, 0),
-(17, 'Petit Fours', 'trangmieng4.png', 150000, 4, 0),
-(18, 'Bánh crepes dâu tây', 'trangmieng6.png', 200000, 4, 0),
-(19, 'Bourbon whiskey', 'ruou1.png', 1000000, 5, 0),
-(20, 'Rượu Hendrick’s Gin', 'ruou3.png', 800000, 5, 0),
-(21, 'Rhum Bacardi Vàng', 'ruou5.png', 350000, 5, 0),
-(22, 'Rượu Cognac', 'ruou2.png', 1000000, 5, 0),
-(23, 'Rượu Vodka Absolut Raspberri (Dâu)', 'ruou4.png', 400000, 5, 0),
-(24, 'Rượu Tequila Jose Cuervo', 'ruou6.png', 400000, 5, 0);
+(1, 'Bruschetta Bánh Mì Nướng', NULL, 400000, 2, 0),
+(2, 'Foie gras Gan Ngỗng Béo', NULL, 400000, 2, 0),
+(3, 'Croque Monsieur Bánh mì nướng', NULL, 400000, 2, 0),
+(4, 'Salad cồi sò điệp', NULL, 400000, 2, 0),
+(5, 'Huître Hàu sống', NULL, 400000, 2, 0),
+(6, 'Coq au vin Gà sốt vang', NULL, 400000, 2, 0),
+(7, 'Sò điệp sốt kem chanh', NULL, 400000, 2, 1),
+(8, 'Thăn ngoại bò Úc nướng', NULL, 400000, 2, 1),
+(9, 'Cơm chiên hải sản', NULL, 400000, 2, 1),
+(10, 'Cá hồi sốt tiêu đen', NULL, 400000, 2, 1),
+(11, 'Salad', NULL, 400000, 2, 1),
+(12, 'Sườn cừu nướng', 'monchinh6.png', 400000, 3, 1),
+(13, 'Mont-blanc', NULL, 400000, 2, 1),
+(14, 'Bánh Madeleines', NULL, 400000, 2, 1),
+(15, 'Pain au chocolat', NULL, 400000, 2, 1),
+(16, 'Bánh crepes', 'trangmieng2.png', 100000, 4, 1),
+(17, 'Petit Fours', 'trangmieng4.png', 150000, 4, 1),
+(18, 'Bánh crepes dâu tây', 'trangmieng6.png', 200000, 4, 1),
+(19, 'Bourbon whiskey', 'ruou1.png', 1000000, 5, 1),
+(20, 'Rượu Hendrick’s Gin', 'ruou3.png', 800000, 5, 1),
+(21, 'Rhum Bacardi Vàng', 'ruou5.png', 350000, 5, 1),
+(22, 'Rượu Cognac', 'ruou2.png', 1000000, 5, 1),
+(23, 'Rượu Vodka Absolut Raspberri (Dâu)', 'ruou4.png', 400000, 5, 1),
+(24, 'Rượu Tequila Jose Cuervo', 'ruou6.png', 400000, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -305,7 +226,7 @@ CREATE TABLE `nhanvien` (
   `ngaysinh` varchar(50) NOT NULL,
   `gioitinh` varchar(50) NOT NULL,
   `idbp` int(6) NOT NULL,
-  `cccd` int(20) NOT NULL,
+  `cccd` bigint(100) NOT NULL,
   `view` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -321,19 +242,9 @@ INSERT INTO `nhanvien` (`id`, `tennhanvien`, `ngaysinh`, `gioitinh`, `idbp`, `cc
 (5, 'Bảo Khanh', '01/12/2000', 'Nữ', 4, 2147483647, 0),
 (6, 'Bảo Nhi', '09/10/2002', 'Nam', 4, 2147483647, 0),
 (7, 'Trần Trung', '15/09/1998', 'Nam', 5, 2147483647, 0),
-(8, 'Bảo Thy', '23/03/1995', 'Nữ', 5, 2147483647, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `password_reset_tokens`
---
-
-CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(8, 'Bảo Thy', '23/03/1995', 'Nữ', 5, 2147483647, 0),
+(9, 'Lâm Như', '19/10/2002', 'Nữ', 3, 3567829012, 1),
+(12, 'Mén', '19/09/1999', 'Nữ', 3, 2356281654, 1);
 
 -- --------------------------------------------------------
 
@@ -345,14 +256,21 @@ CREATE TABLE `phieudattiec` (
   `stt` int(6) NOT NULL,
   `tenkhach` varchar(50) NOT NULL,
   `sodienthoai` int(4) NOT NULL DEFAULT 0,
-  `ngaydienra` int(4) NOT NULL DEFAULT 0,
-  `giodienra` int(4) NOT NULL DEFAULT 0,
+  `ngaydienra` varchar(50) NOT NULL DEFAULT '0',
+  `giodienra` varchar(50) NOT NULL DEFAULT '0',
   `idnv` int(4) NOT NULL,
   `idtd` int(4) NOT NULL,
   `iddc` int(4) NOT NULL,
   `phuongthucthanhtoan` varchar(50) NOT NULL,
-  `view` tinyint(1) NOT NULL DEFAULT 0
+  `view` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `phieudattiec`
+--
+
+INSERT INTO `phieudattiec` (`stt`, `tenkhach`, `sodienthoai`, `ngaydienra`, `giodienra`, `idnv`, `idtd`, `iddc`, `phuongthucthanhtoan`, `view`) VALUES
+(3, 'Hồng Cẩm', 912365748, '30/04/2024', '13 giờ', 2, 2, 0, 'Tiền mặt', 0);
 
 -- --------------------------------------------------------
 
@@ -374,34 +292,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('65Pt3nseV1FWMhgcU8ANGfWTJECZuWNuBI5vlO9o', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaDhUWHdBWjd4b0x3M3lHUDc3VEJNaWxKQ0d2aWdFRG9Gbjhnd0l5TCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly9sb2NhbGhvc3QvUmVzdGF1cmFudC9hbGxJbmdyZWRpZW50Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo3OiJtZXNzYWdlIjtOO30=', 1714318887),
-('St7t9msS0hPiecVLcIoEdhzSeAEvRHRgbcNoGxNA', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUDlPcU5sbWpLQ1FMQVJZa3hDeUdzczZySkMxR0dWTzFDQVVJM0ZqZSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3QvUmVzdGF1cmFudC9BZGRwcm9kdWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo3OiJtZXNzYWdlIjtOO30=', 1714306898),
-('TqkdkfWiA8UELl2ZKxGT4q0BewXNqCfotePBTq0K', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiY0k1dTFXdkFXZUZyQko5bkZoUFpqMGVoMjJqTE1ORE1hTU1nZTg0ZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3QvUmVzdGF1cmFudC9tZW51LTEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714313442),
-('xPKlozWWfHl84huLLQIEIxZezz4xmQrBrxMiuFNU', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZ2tmUDE4WGNDZG9qN2ZWaklNdlVJMml3T2dQTUhmWjNoa1JzMEhLZyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3QvUmVzdGF1cmFudC9BZGRwcm9kdWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo3OiJtZXNzYWdlIjtOO30=', 1714313101);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_user`
---
-
-CREATE TABLE `tbl_user` (
-  `id` int(4) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `user` varchar(20) NOT NULL,
-  `pass` varchar(20) NOT NULL,
-  `role` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_user`
---
-
-INSERT INTO `tbl_user` (`id`, `name`, `address`, `email`, `user`, `pass`, `role`) VALUES
-(1, NULL, NULL, NULL, 'admin', '123', 1),
-(2, NULL, NULL, NULL, 'hotb', '456', 0);
+('BpzHrPBYrkHxgCc9niEybOCsRbaa7IgDFG99pR18', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoicVRjN2NVM3JBWlh6TmFwbmtHMDFrMVhrNWJ0S0NjU0lKRmtsQmxrcCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHA6Ly9sb2NhbGhvc3QvUmVzdGF1cmFudC9yZWdpc3RlclVzZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjc6Im1lc3NhZ2UiO047fQ==', 1714462206),
+('eejeGE0kUuyIMceID0LvDagY4uTSFQIRqvQl3haC', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicGFTSHNoVkpwZmYzdnpzSkh4blhQbFczc1p6QjJibnlDZHN1aUI5TiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3QvUmVzdGF1cmFudC9hbGxjcmVhdGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714463554),
+('zMDFMW0JxoOwffKKOkc2rwKX5ACPRDJKg219Pt6e', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieVdqbHJOaXg4UzNENlU0cEx2SVhnNWNrdGlsU29ab01ZN2Vua2JQdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3QvUmVzdGF1cmFudCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1714457582);
 
 -- --------------------------------------------------------
 
@@ -421,13 +314,14 @@ CREATE TABLE `thucdon` (
 --
 
 INSERT INTO `thucdon` (`id`, `tentd`, `mota`, `hienthi`) VALUES
-(2, 'Món khai vị', 'Những món ăn nhẹ trước khi vào món chính.', 1),
-(3, 'Món chính', 'Các món ăn với nhiều chất dinh dưỡng, màu sắc đa dạng.', 1),
-(4, 'Món tráng miệng', 'Các món bánh ngọt, kem ăn tráng miệng.', 1),
-(5, 'Đồ uống', 'Các loại rượu Tây đi kèm với mỗi bữa tiệc.', 1),
-(6, 'Nước ngọt', 'Các loại nước ngọt không có nồng độ cồn.', 1),
+(2, 'Món Khai Vị', 'Những món ăn nhẹ trước khi vào món chính.', 0),
+(3, 'Món Chính', 'Các món ăn với nhiều chất dinh dưỡng, màu sắc đa dạng.', 0),
+(4, 'Món Tráng Miệng', 'Các món bánh ngọt, kem ăn tráng miệng.', 0),
+(5, 'Đồ Uống', 'Các loại rượu Tây đi kèm với mỗi bữa tiệc.', 0),
+(6, 'Nước Ngọt', 'Các loại nước ngọt không có nồng độ cồn.', 1),
 (7, 'Nước khoáng', 'Các loại nước khoáng.', 1),
-(8, 'Kẹo', 'Kẹo nhiều màu', 1);
+(8, 'Kẹo', 'Kẹo nhiều màu', 1),
+(9, 'Sò Huyết', 'Sò huyết tươi sống.', 1);
 
 -- --------------------------------------------------------
 
@@ -459,24 +353,9 @@ INSERT INTO `userlogin` (`id_user`, `name_user`, `email_user`, `password_user`) 
 (10, 'lucas', 'lucas@gmail.com', 'lucas123'),
 (11, 'mit', 'mit@gmail.com', 'mit123'),
 (12, 'Bon', 'bon@gmail.com', 'bon123'),
-(13, 'mệt', 'metmoi@gmail.com', 'met123');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(13, 'mệt', 'metmoi@gmail.com', 'met123'),
+(14, 'Hồng Cẩm', 'cam@gmail.com', 'cam123'),
+(23, 'Nháp', 'nhap@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -495,47 +374,15 @@ ALTER TABLE `bophan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cache`
---
-ALTER TABLE `cache`
-  ADD PRIMARY KEY (`key`);
-
---
--- Indexes for table `cache_locks`
---
-ALTER TABLE `cache_locks`
-  ADD PRIMARY KEY (`key`);
-
---
--- Indexes for table `danhmucsp`
---
-ALTER TABLE `danhmucsp`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `datcoc`
 --
 ALTER TABLE `datcoc`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Indexes for table `dathang`
 --
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- Indexes for table `jobs`
---
-ALTER TABLE `jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `jobs_queue_index` (`queue`);
-
---
--- Indexes for table `job_batches`
---
-ALTER TABLE `job_batches`
+ALTER TABLE `dathang`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -566,19 +413,13 @@ ALTER TABLE `nhanvien`
   ADD KEY `idbp` (`idbp`);
 
 --
--- Indexes for table `password_reset_tokens`
---
-ALTER TABLE `password_reset_tokens`
-  ADD PRIMARY KEY (`email`);
-
---
 -- Indexes for table `phieudattiec`
 --
 ALTER TABLE `phieudattiec`
   ADD PRIMARY KEY (`stt`),
   ADD KEY `iddc` (`iddc`),
-  ADD KEY `idnv` (`idnv`),
-  ADD KEY `idtd` (`idtd`);
+  ADD KEY `idtd` (`idtd`),
+  ADD KEY `idnv` (`idnv`);
 
 --
 -- Indexes for table `sessions`
@@ -587,12 +428,6 @@ ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `sessions_user_id_index` (`user_id`),
   ADD KEY `sessions_last_activity_index` (`last_activity`);
-
---
--- Indexes for table `tbl_user`
---
-ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `thucdon`
@@ -607,13 +442,6 @@ ALTER TABLE `userlogin`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -624,22 +452,16 @@ ALTER TABLE `adminlogin`
   MODIFY `id_admin` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `danhmucsp`
+-- AUTO_INCREMENT for table `bophan`
 --
-ALTER TABLE `danhmucsp`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `bophan`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT for table `dathang`
 --
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `jobs`
---
-ALTER TABLE `jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `dathang`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -651,7 +473,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `monan`
 --
 ALTER TABLE `monan`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `nguyenlieu`
@@ -660,34 +482,28 @@ ALTER TABLE `nguyenlieu`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT for table `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `phieudattiec`
 --
 ALTER TABLE `phieudattiec`
-  MODIFY `stt` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_user`
---
-ALTER TABLE `tbl_user`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `stt` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `thucdon`
 --
 ALTER TABLE `thucdon`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `userlogin`
 --
 ALTER TABLE `userlogin`
-  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
@@ -715,9 +531,8 @@ ALTER TABLE `nhanvien`
 -- Constraints for table `phieudattiec`
 --
 ALTER TABLE `phieudattiec`
-  ADD CONSTRAINT `phieudattiec_ibfk_1` FOREIGN KEY (`iddc`) REFERENCES `datcoc` (`id`),
-  ADD CONSTRAINT `phieudattiec_ibfk_2` FOREIGN KEY (`idnv`) REFERENCES `nhanvien` (`id`),
-  ADD CONSTRAINT `phieudattiec_ibfk_3` FOREIGN KEY (`idtd`) REFERENCES `thucdon` (`id`);
+  ADD CONSTRAINT `phieudattiec_ibfk_3` FOREIGN KEY (`idtd`) REFERENCES `thucdon` (`id`),
+  ADD CONSTRAINT `phieudattiec_ibfk_4` FOREIGN KEY (`idnv`) REFERENCES `nhanvien` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

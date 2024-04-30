@@ -35,10 +35,15 @@ class CreateOrderController extends Controller
         $data['view'] = $request->createview;
 
         DB::table('phieudattiec')->insert($data);
-        Session::put('message','Lập phiếu thành công thành công!');
+        Session::put('message','Lập phiếu thành công!');
              return Redirect::to('addcreate');
         // echo '<pre>';
         // print_r($data);
         // echo '</pre>';  
+    }
+    public function deletecreate($createid){
+        DB::table('phieudattiec')->where('stt',$createid)->delete();
+        Session::put('message','Xóa phiếu thành công!');
+            return Redirect::to('allcreate');
     }
 }
